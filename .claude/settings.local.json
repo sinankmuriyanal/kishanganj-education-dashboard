@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(python -c ' *)",
+      "Bash(python -m streamlit run dashboard.py --server.headless true --server.port 8501)",
+      "Bash(curl -s http://localhost:8501)",
+      "Bash(curl -s http://localhost:8501/_stcore/health)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(taskkill /F /IM python.exe /FI \"WINDOWTITLE eq streamlit*\")",
+      "Bash(python -m streamlit run dashboard.py)"
+    ]
+  }
+}
