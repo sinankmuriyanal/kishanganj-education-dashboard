@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
 from pathlib import Path
+from streamlit_option_menu import option_menu
 
 st.set_page_config(
     page_title="Kishanganj Education Dashboard",
@@ -99,31 +100,74 @@ def color_metric(val, good_threshold, warn_threshold, higher_is_better=True):
         return "red"
 
 
-st.sidebar.title("Kishanganj Education Dashboard")
-st.sidebar.caption("UDISE+ Data | Bihar | 2022–2025")
-
-page = st.sidebar.radio(
-    "Navigate",
-    [
-        "District Overview",
-        "Enrollment & Access",
-        "Dropout Risk Analysis",
-        "Teacher Analysis",
-        "Infrastructure Gaps",
-        "Governance & Accountability",
-        "Block-wise Comparison",
-        "Correlation Explorer",
-    ]
+st.sidebar.markdown(
+    """
+    <div style='text-align:center; padding: 12px 0 4px 0;'>
+        <span style='font-size:1.5rem;'>📚</span><br>
+        <span style='font-weight:700; font-size:1rem; color:#1f77b4;'>Kishanganj Education</span><br>
+        <span style='font-size:0.75rem; color:#6c757d;'>UDISE+ · Bihar · 2022–2025</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
+
+with st.sidebar:
+    page = option_menu(
+        menu_title=None,
+        options=[
+            "District Overview",
+            "Enrollment & Access",
+            "Dropout Risk Analysis",
+            "Teacher Analysis",
+            "Infrastructure Gaps",
+            "Governance & Accountability",
+            "Block-wise Comparison",
+            "Correlation Explorer",
+        ],
+        icons=[
+            "house-fill",
+            "people-fill",
+            "graph-down-arrow",
+            "person-badge-fill",
+            "building-fill",
+            "shield-fill-check",
+            "map-fill",
+            "diagram-3-fill",
+        ],
+        default_index=0,
+        styles={
+            "container": {"padding": "4px 0", "background-color": "transparent"},
+            "icon": {"font-size": "13px"},
+            "nav-link": {
+                "font-size": "12.5px",
+                "text-align": "left",
+                "padding": "6px 12px",
+                "border-radius": "6px",
+            },
+            "nav-link-selected": {
+                "background-color": "#1f77b4",
+                "font-weight": "600",
+            },
+        },
+    )
 
 st.sidebar.divider()
-selected_years = st.sidebar.multiselect(
-    "Academic Years", options=list(YEAR_MAP.values()),
-    default=list(YEAR_MAP.values())
-)
-selected_blocks = st.sidebar.multiselect(
-    "Blocks", options=BLOCKS, default=BLOCKS
-)
+
+# ── Year filter ──────────────────────────────────────────────────────────────
+with st.sidebar.expander("Academic Years", expanded=True):
+    all_years = st.checkbox("Select All", value=True, key="all_years")
+    year_checks = {y: st.checkbox(y, value=True, key=f"yr_{y}") for y in YEAR_MAP.values()}
+    selected_years = list(YEAR_MAP.values()) if all_years else [y for y, v in year_checks.items() if v]
+    if not selected_years:
+        selected_years = list(YEAR_MAP.values())
+
+# ── Block filter ─────────────────────────────────────────────────────────────
+with st.sidebar.expander("Blocks", expanded=True):
+    all_blocks = st.checkbox("Select All", value=True, key="all_blocks")
+    block_checks = {b: st.checkbox(b.title(), value=True, key=f"blk_{b}") for b in BLOCKS}
+    selected_blocks = BLOCKS if all_blocks else [b for b, v in block_checks.items() if v]
+    if not selected_blocks:
+        selected_blocks = BLOCKS
 
 year_ids = [k for k, v in YEAR_MAP.items() if v in selected_years]
 
@@ -686,8 +730,7 @@ elif page == "Infrastructure Gaps":
     c1, c2 = st.columns(2)
     with c1:
         st.subheader("Digital Infrastructure by School Type")
-        digital = latest_facility.copy()
-        digital = digital.merge(master[["schoolId", "mgmtShort"]], on="schoolId", how="left")
+        digital = latest_facility.copy()  # mgmtShort already present from load_data merge
         digi_grp = digital.groupby("mgmtShort").agg(
             computers=("desktopFun", "sum"),
             tablets=("tabletsTot", "sum"),
@@ -1143,9 +1186,9 @@ elif page == "Correlation Explorer":
         "These are the highest-leverage intervention points for an education NGO."
     )
 
-st.sidebar.divider()
-st.sidebar.caption(
-    "Data Source: UDISE+ | District: Kishanganj, Bihar\n"
-    "2,026 operational schools | 3 academic years (2022–25)\n"
-    "Built for education NGO use"
+st.sidebar.markdown(
+    "<div style='font-size:0.7rem; color:#999; text-align:center; padding:8px 0;'>"
+    "UDISE+ · Kishanganj, Bihar<br>2,026 schools · 2022–25"
+    "</div>",
+    unsafe_allow_html=True,
 )
