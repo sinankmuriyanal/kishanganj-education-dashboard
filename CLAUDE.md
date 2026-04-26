@@ -75,3 +75,5 @@ streamlit run dashboard.py
 - 2026-04-25: Initial dashboard created from UDISE+ extraction; covers 2022-25 data
 
 - [2026-04-25] update: OneDrive/Desktop/claude/UDISE/udise_output_kishangarh/counts.csv,OneDrive/Desktop/claude/UDISE/udise_output_kishangarh/counts.parquet,OneDrive/Desktop/claude/UDISE/udise_output_kishangarh/enrolment.csv,OneDrive/Desktop/claude/UDISE/udise_output_kishangarh/enrolment.parquet,OneDrive/Desktop/claude/UDISE/udise_output_kishangarh/facility.csv
+- [2026-04-25] add Kishanganj education dashboard with 8-page Streamlit app and UDISE+ data (2022-25)
+- [2026-04-26] fix three runtime errors on Streamlit Cloud: dead lambda block_infra, remove matplotlib background_gradient, switch trendline to lowess + add statsmodels
