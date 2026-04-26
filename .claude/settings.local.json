@@ -12,7 +12,8 @@
       "Bash(gh repo *)",
       "Bash(taskkill /F /IM python.exe /FI \"WINDOWTITLE eq streamlit*\")",
       "Bash(python -m streamlit run dashboard.py)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(pip install *)"
     ]
   }
 }
