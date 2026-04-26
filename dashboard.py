@@ -658,20 +658,6 @@ elif page == "Infrastructure Gaps":
     st.divider()
     st.subheader("Block-wise Infrastructure Scorecard")
 
-    block_infra = latest_facility.groupby("blockName").apply(
-        lambda x: pd.Series({
-            k: x[v].mean() * 100 for k, v in {
-                "elec": "has_electricity" if "has_electricity" in x else None,
-                **{kk: vv for kk, vv in {
-                    "water": (x["drinkWaterYn"] == 1).mean() * 100,
-                    "girls_toilet": (x["toiletgFun"] >= 1).mean() * 100,
-                    "internet": (x["internetYn"] == 1).mean() * 100,
-                    "library": (x["libraryYn"] == 1).mean() * 100,
-                }.items()}
-            }.items() if v
-        })
-    ).reset_index()
-
     block_infra = latest_facility.groupby("blockName").agg(
         electricity=("electricityYn", lambda x: (x == 1).mean() * 100),
         water=("drinkWaterYn", lambda x: (x == 1).mean() * 100),
@@ -989,12 +975,7 @@ elif page == "Block-wise Comparison":
     for col in ["Electricity %", "Water %", "Girls Toilet %", "Internet %", "SMC %", "Vuln. Score"]:
         display_df[col] = display_df[col].round(1)
 
-    st.dataframe(
-        display_df.style.background_gradient(subset=["Vuln. Score"], cmap="RdYlGn_r")
-                        .background_gradient(subset=["GPI"], cmap="RdYlGn")
-                        .background_gradient(subset=["Girls Toilet %"], cmap="RdYlGn"),
-        use_container_width=True, hide_index=True
-    )
+    st.dataframe(display_df, use_container_width=True, hide_index=True)
 
     st.divider()
     st.subheader("Radar Chart: Multi-dimensional Block Comparison")
@@ -1115,7 +1096,7 @@ elif page == "Correlation Explorer":
             num_cols_available[x_var]: x_var,
             num_cols_available[y_var]: y_var,
         },
-        trendline="ols",
+        trendline="lowess",
     )
     st.plotly_chart(fig, use_container_width=True)
 
