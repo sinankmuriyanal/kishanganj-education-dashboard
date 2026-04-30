@@ -79,3 +79,4 @@ streamlit run dashboard.py
 - [2026-04-26] fix three runtime errors on Streamlit Cloud: dead lambda block_infra, remove matplotlib background_gradient, switch trendline to lowess + add statsmodels
 - [2026-04-26] fix mgmtShort KeyError from redundant facility merge; replace radio nav with option_menu icons; replace multiselect with checkbox+Select All filters
 - [2026-04-30] update: .claude/settings.local.json
+- [2026-04-30] docs(changelog): sync 2026-04-30
