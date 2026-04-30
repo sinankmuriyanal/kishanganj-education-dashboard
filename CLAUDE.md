@@ -78,3 +78,4 @@ streamlit run dashboard.py
 - [2026-04-25] add Kishanganj education dashboard with 8-page Streamlit app and UDISE+ data (2022-25)
 - [2026-04-26] fix three runtime errors on Streamlit Cloud: dead lambda block_infra, remove matplotlib background_gradient, switch trendline to lowess + add statsmodels
 - [2026-04-26] fix mgmtShort KeyError from redundant facility merge; replace radio nav with option_menu icons; replace multiselect with checkbox+Select All filters
+- [2026-04-30] update: .claude/settings.local.json
