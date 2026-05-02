@@ -13,7 +13,17 @@
       "Bash(taskkill /F /IM python.exe /FI \"WINDOWTITLE eq streamlit*\")",
       "Bash(python -m streamlit run dashboard.py)",
       "Bash(git push *)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "mcp__ide__executeCode",
+      "Bash(python3)",
+      "Read(//c/Users/hp/OneDrive/Desktop/claude/**)",
+      "Bash(dir \"C:\\\\Users\\\\hp\\\\OneDrive\\\\Desktop\\\\claude\")",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/enrolment.parquet'\\); print\\(df.columns.tolist\\(\\)\\); print\\(df.dtypes\\); print\\(df.head\\(5\\).to_string\\(\\)\\)\")",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/enrolment.parquet'\\); print\\('class column unique values:', df['class'].unique\\(\\) if 'class' in df.columns else 'no class col'\\); print\\('class_id unique values:', df['classId'].unique\\(\\) if 'classId' in df.columns else 'no classId col'\\)\")",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/counts.parquet'\\); print\\(df.columns.tolist\\(\\)\\); print\\(df.head\\(3\\).to_string\\(\\)\\); print\\(df.shape\\)\")",
+      "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/profile.parquet'\\); print\\(df.columns.tolist\\(\\)\\); print\\(df.head\\(3\\).to_string\\(\\)\\)\")",
+      "PowerShell(cd \"C:\\\\Users\\\\hp\\\\OneDrive\\\\Desktop\\\\claude\\\\Kishanganj\"; Get-ChildItem -Recurse -File | Select-Object FullName, @{Name=\"Extension\";Expression={$_.Extension}} | Sort-Object FullName)",
+      "Bash(python export_panchayats.py)"
     ]
   }
 }
