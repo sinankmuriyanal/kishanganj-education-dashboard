@@ -95,3 +95,4 @@ streamlit run dashboard.py
 - [2026-04-30] docs(changelog): sync 2026-04-30
 
 - [2026-05-07] update: CLAUDE.md,export_panchayats.py,middle_school_survey_sample.csv,panchayat_Bagalbari.csv,panchayat_Barijan.csv,panchayat_Bualdah.csv
+- [2026-05-07] update: class6_7_8_panchayat_wise.csv

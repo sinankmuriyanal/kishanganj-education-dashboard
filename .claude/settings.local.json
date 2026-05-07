@@ -23,7 +23,8 @@
       "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/counts.parquet'\\); print\\(df.columns.tolist\\(\\)\\); print\\(df.head\\(3\\).to_string\\(\\)\\); print\\(df.shape\\)\")",
       "Bash(python -c \"import pandas as pd; df = pd.read_parquet\\('udise_output_kishangarh/profile.parquet'\\); print\\(df.columns.tolist\\(\\)\\); print\\(df.head\\(3\\).to_string\\(\\)\\)\")",
       "PowerShell(cd \"C:\\\\Users\\\\hp\\\\OneDrive\\\\Desktop\\\\claude\\\\Kishanganj\"; Get-ChildItem -Recurse -File | Select-Object FullName, @{Name=\"Extension\";Expression={$_.Extension}} | Sort-Object FullName)",
-      "Bash(python export_panchayats.py)"
+      "Bash(python export_panchayats.py)",
+      "Bash(python generate_class678_schoolwise.py)"
     ]
   }
 }
