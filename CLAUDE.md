@@ -93,3 +93,5 @@ streamlit run dashboard.py
 - [2026-04-26] fix mgmtShort KeyError from redundant facility merge; replace radio nav with option_menu icons; replace multiselect with checkbox+Select All filters
 - [2026-04-30] update: .claude/settings.local.json
 - [2026-04-30] docs(changelog): sync 2026-04-30
+
+- [2026-05-07] update: CLAUDE.md,export_panchayats.py,middle_school_survey_sample.csv,panchayat_Bagalbari.csv,panchayat_Barijan.csv,panchayat_Bualdah.csv
