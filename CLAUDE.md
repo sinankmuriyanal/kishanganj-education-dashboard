@@ -97,3 +97,4 @@ streamlit run dashboard.py
 - [2026-05-07] update: CLAUDE.md,export_panchayats.py,middle_school_survey_sample.csv,panchayat_Bagalbari.csv,panchayat_Barijan.csv,panchayat_Bualdah.csv
 - [2026-05-07] update: class6_7_8_panchayat_wise.csv
 - [2026-07-14] update: class6_7_8_school_wise.csv,CLAUDE.md,generate_class678_schoolwise.py,settings.local.json
+- [2026-07-14] docs(changelog): sync 2026-07-14
