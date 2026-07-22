@@ -99,3 +99,4 @@ streamlit run dashboard.py
 - [2026-07-14] update: class6_7_8_school_wise.csv,CLAUDE.md,generate_class678_schoolwise.py,settings.local.json
 - [2026-07-14] docs(changelog): sync 2026-07-14
 - [2026-07-22] update: generate_panchayat_school_summary.py,panchayat_school_level_summary.csv
+- [2026-07-22] docs(changelog): sync 2026-07-22
