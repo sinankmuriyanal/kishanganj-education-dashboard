@@ -100,3 +100,4 @@ streamlit run dashboard.py
 - [2026-07-14] docs(changelog): sync 2026-07-14
 - [2026-07-22] update: generate_panchayat_school_summary.py,panchayat_school_level_summary.csv
 - [2026-07-22] docs(changelog): sync 2026-07-22
+- [2026-07-22] add SSLC (Class 9/10) school-wise and panchayat-wise dropout/passout report for the 7 extracted panchayats. UDISE+ has no real board-exam pass/fail data, so "passout" is a Class 10 enrollment proxy and "dropout" is same-year Class 9 vs Class 10 shrinkage (2024-25) — true cross-year cohort tracking was ruled out because 2023-24 category-total (flag=1) rows exist for only 17 of 121 schools with zero overlap against 2024-25's 104. Added per-school/per-panchayat "Data Reported" flags so 0s from missing reports aren't mistaken for true zero enrollment.
